@@ -1,29 +1,19 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.26;
 
+import "./MKShopHelpers.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract DecentralizedShop is ReentrancyGuard, Ownable {
-    // Custom Errors
-    error EmptyName();
-    error InvalidPrice();
-    error ProductNotExist();
-    error InvalidQuantity();
-    error ProductNotActive();
-    error InsufficientStock();
-    error IncorrectPayment();
-    error Unauthorized();
-    error InvalidOrderStatus();
-    error EthTransferFailed();
-    error InsufficientBalance();
-    error EmptyOrder();
+contract MKShop is ReentrancyGuard, Ownable, MKShopHelpers {
+    uint256 public nextProductId;
+    uint256 public nextOrderId;
 
     struct Product {
         uint256 id;
-        string name;
         uint256 price;
         uint256 stock;
+        string name;
         bool isActive;
     }
 
@@ -34,77 +24,52 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
 
     struct Order {
         uint256 id;
-        address payable buyer;
-        OrderItem[] items;
         uint256 totalPrice;
+        address payable buyer;
         OrderStatus status;
+        OrderItem[] items;
     }
 
     enum OrderStatus {
         Placed,
-        Paid,
         Shipped,
         Delivered,
         Cancelled
     }
 
-    mapping(uint256 => Product) public products;
-    mapping(uint256 => Order) public orders;
-
-    uint256 public nextProductId;
-    uint256 public nextOrderId;
-
-    event ProductAdded(
-        uint256 indexed productId,
-        string name,
-        uint256 price,
-        uint256 stock
-    );
-    event ProductUpdated(
-        uint256 indexed productId,
-        string name,
-        uint256 price,
-        uint256 stock
-    );
-    event OrderPlaced(
-        uint256 indexed orderId,
-        address indexed buyer,
-        uint256 totalPrice
-    );
-    event OrderItemAdded(
-        uint256 indexed orderId,
-        uint256 productId,
-        uint256 quantity
-    );
-    event OrderPaid(uint256 indexed orderId);
-    event OrderShipped(uint256 indexed orderId);
-    event OrderDelivered(uint256 indexed orderId);
-    event OrderCancelled(uint256 indexed orderId);
+    mapping(uint256 productId => Product) public products;
+    mapping(uint256 orderId => Order) public orders;
 
     constructor() Ownable(msg.sender) {}
 
     function addProduct(
-        string memory _name,
         uint256 _price,
-        uint256 _stock
+        uint256 _stock,
+        string memory _name
     ) external onlyOwner {
+        performSanityCheck();
+
         if (bytes(_name).length == 0) revert EmptyName();
         if (_price == 0) revert InvalidPrice();
 
         uint256 productId = nextProductId++;
-        products[productId] = Product(productId, _name, _price, _stock, true);
+        products[productId] = Product(productId, _price, _stock, _name, true);
 
         emit ProductAdded(productId, _name, _price, _stock);
     }
 
     function updateProduct(
         uint256 _productId,
-        string memory _name,
         uint256 _price,
         uint256 _stock,
+        string memory _name,
         bool _isActive
     ) external onlyOwner {
-        if (_productId >= nextProductId) revert ProductNotExist();
+        performSanityCheck();
+
+        if (_productId >= nextProductId) revert ProductDoesNotExist();
+        if (bytes(products[_productId].name).length == 0)
+            revert ProductDoesNotExist();
         if (bytes(_name).length == 0) revert EmptyName();
         if (_price == 0) revert InvalidPrice();
 
@@ -114,12 +79,13 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
         product.stock = _stock;
         product.isActive = _isActive;
 
-        emit ProductUpdated(_productId, _name, _price, _stock);
+        emit ProductUpdated(_productId, _name, _price, _stock, _isActive);
     }
 
     function placeOrder(
         OrderItem[] memory _items
     ) external payable nonReentrant {
+        performSanityCheck();
         if (_items.length == 0) revert EmptyOrder();
 
         uint256 orderId = nextOrderId++;
@@ -128,13 +94,13 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
         Order storage newOrder = orders[orderId];
         newOrder.id = orderId;
         newOrder.buyer = payable(msg.sender);
-        newOrder.status = OrderStatus.Paid;
+        newOrder.status = OrderStatus.Placed;
 
         for (uint256 i = 0; i < _items.length; i++) {
             uint256 productId = _items[i].productId;
             uint256 quantity = _items[i].quantity;
 
-            if (productId >= nextProductId) revert ProductNotExist();
+            if (productId >= nextProductId) revert ProductDoesNotExist();
             if (quantity == 0) revert InvalidQuantity();
 
             Product storage product = products[productId];
@@ -146,8 +112,6 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
             product.stock -= quantity;
 
             newOrder.items.push(OrderItem(productId, quantity));
-
-            emit OrderItemAdded(orderId, productId, quantity);
         }
 
         if (msg.value != totalPrice) revert IncorrectPayment();
@@ -155,18 +119,21 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
         newOrder.totalPrice = totalPrice;
 
         emit OrderPlaced(orderId, msg.sender, totalPrice);
-        emit OrderPaid(orderId);
     }
 
     function shipOrder(uint256 _orderId) external onlyOwner {
+        performSanityCheck();
+
         Order storage order = orders[_orderId];
-        if (order.status != OrderStatus.Paid) revert InvalidOrderStatus();
+        if (order.status != OrderStatus.Placed) revert InvalidOrderStatus();
 
         order.status = OrderStatus.Shipped;
         emit OrderShipped(_orderId);
     }
 
     function deliverOrder(uint256 _orderId) external onlyOwner {
+        performSanityCheck();
+
         Order storage order = orders[_orderId];
         if (order.status != OrderStatus.Shipped) revert InvalidOrderStatus();
 
@@ -175,10 +142,12 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
     }
 
     function cancelOrder(uint256 _orderId) external nonReentrant {
+        performSanityCheck();
+
         Order storage order = orders[_orderId];
-        if (order.buyer != msg.sender && owner() != msg.sender)
+        if (msg.sender != order.buyer && msg.sender != owner())
             revert Unauthorized();
-        if (order.status != OrderStatus.Paid) revert InvalidOrderStatus();
+        if (order.status != OrderStatus.Placed) revert InvalidOrderStatus();
 
         order.status = OrderStatus.Cancelled;
 
@@ -199,12 +168,6 @@ contract DecentralizedShop is ReentrancyGuard, Ownable {
         if (!sent) revert EthTransferFailed();
     }
 
-    receive() external payable {
-        // Allow the contract to receive ETH
-    }
+    // Allow the contract to receive ETH
+    receive() external payable {}
 }
-
-/* 
-- make contract receive erc20 tokens
-- pay with both eth and erc20
- */
