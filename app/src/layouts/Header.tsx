@@ -9,7 +9,7 @@ export default function Header() {
           src={"/images/logo.png"}
           width={250}
           height={250}
-          className="absolute top-8"
+          className="absolute top-0"
           alt="logo"
         />
       </a>
