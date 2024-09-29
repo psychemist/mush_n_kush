@@ -36,7 +36,7 @@ export default function Banner() {
           </p>
           <div className="flex flex-wrap items-center justify-start gap-4">
             <Button>Explore</Button>
-            <Button color="outline">Contact Us</Button>
+            <Button color="outline">Connect Wallet</Button>
           </div>
         </div>
 
