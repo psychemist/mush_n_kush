@@ -5,7 +5,7 @@ import hero from "@/assets/hero.png";
 export default function Banner() {
   const totalValues = [
     {
-      number: "255,356",
+      number: "6,255,356",
       content: "Sales Completed",
       color: "bg-orange-500",
     },

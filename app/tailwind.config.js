@@ -36,7 +36,7 @@ module.exports = {
           500: "#709647",
         },
       },
-      items: {
+      alignItems: {
         "last-baseline": "last baseline",
       },
     },
