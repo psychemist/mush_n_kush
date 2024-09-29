@@ -26,12 +26,12 @@ const WeedData = [
 
 const Product = () => {
   return (
-    <section className="flex flex-col py-20" id="team">
-      <div>
+    <section className="flex flex-col py-20" w-full id="team">
+      <div className="flex items-center justify-center">
         <h2 className="text-4xl font-semibold leading-relaxed text-gray-500 md:text-5xl">
           Our Best Selling Products
         </h2>
-        <p className="w-11/12 text-base font-medium text-gray-300 md:w-7/12 md:text-lg">
+        <p className="w-11/12 py-8 text-base font-medium text-gray-300  md:w-full md:text-lg">
           Discover our premium marijuana offerings, expertly cultivated for
           quality and consistency. Our best-selling products are rigorously
           tested for purity and potency, ensuring a safe and enjoyable
