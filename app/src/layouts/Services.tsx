@@ -58,7 +58,7 @@ export default function Services() {
         id="services"
         className="items-last-baseline mt-4 grid w-full grid-cols-1 items-baseline gap-8 md:grid-cols-2"
       >
-        <div className="order-last flex w-full flex-col items-start gap-5 md:-order-1 lg:w-96">
+        <div className="order-last flex w-full flex-col items-start gap-3 md:-order-1 lg:w-96">
           <p className="mt-4 text-base leading-normal text-gray-300">
           Know exactly where your premium herb comes from, every step of the way.
           Got questions or need the freshest drop? We're just a click away!
