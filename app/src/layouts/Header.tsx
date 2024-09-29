@@ -7,9 +7,9 @@ export default function Header() {
       <a href="/">
         <Image
           src={"/images/logo.png"}
-          width={250}
-          height={250}
-          className="absolute top-0"
+          width={200}
+          height={200}
+          className="absolute -top-5"
           alt="logo"
         />
       </a>
