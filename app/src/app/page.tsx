@@ -7,6 +7,7 @@ import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
 import Newsletter from "@/layouts/Newsletter";
 import Services from "@/layouts/Services";
+import Product from "@/layouts/Product";
 
 export default function Home() {
   return (
@@ -15,11 +16,12 @@ export default function Home() {
       <Banner />
       <Partnership />
       <Services />
-      <Cards />
+      {/*  <Cards /> */}
+      <Product />
       <ContactUs />
       <Blog />
       <Newsletter />
       <Footer />
     </>
-  )
+  );
 }

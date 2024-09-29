@@ -70,7 +70,7 @@ export default function Services() {
         <div className="flex flex-col gap-10 md:gap-20">
           {ourPoints.map((point, index) => (
             <motion.div
-              key={index}
+              key={point.content}
               variants={slideIn("down", "spring", 1, index * 0.3)}
               initial="hidden"
               whileInView="show"
