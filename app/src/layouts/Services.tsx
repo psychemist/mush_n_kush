@@ -18,18 +18,34 @@ export default function Services() {
     },
     {
       number: "02",
-      Heading: "Decentralization",
+      Heading: "Transparency",
       content:
-        "Up maids me an ample stood given. Certainty say suffering his him collected intention promotion.",
+        "Transactions and product information are recorded on the blockchain, providing a transparent history that can enhance trust.",
       color: "bg-orange-500",
     },
     {
       number: "03",
-      Heading: "Decentralization",
+      Heading: "Security",
 
       content:
-        "Good draw knew bred ham busy his hour. Ask agreed answer rather joy nature admire wisdom.",
+        "Smart contracts can automate transactions securely, reducing the risk of fraud and ensuring that agreements are enforced without intermediaries.",
       color: "bg-green-500",
+    },
+    {
+      number: "04",
+      Heading: "Privacy",
+
+      content:
+        "Users can maintain their privacy, as transactions may not require extensive personal information compared to traditional systems.",
+      color: "bg-cyan-500",
+    },
+    {
+      number: "05",
+      Heading: "Regulatory Compliance",
+
+      content:
+        "Smart contracts can be programmed to ensure compliance with local laws, helping businesses operate within legal boundaries.",
+      color: "bg-orange-500",
     },
   ];
 
@@ -44,8 +60,8 @@ export default function Services() {
       >
         <div className="order-last flex w-full flex-col items-start gap-5 md:-order-1 lg:w-96">
           <p className="mt-4 text-base leading-normal text-gray-300">
-            Lorem ipsum dolor sit amet, bibendum enim, ut congue ipsum. Aenean
-            lorem eu vehicula. Fusce mollis in urna ac tristique.
+          Know exactly where your premium herb comes from, every step of the way.
+          Got questions or need the freshest drop? We're just a click away!
           </p>
           <Button>Contact Us</Button>
         </div>
@@ -67,7 +83,7 @@ export default function Services() {
             className="w-full lg:w-[450px]"
           />
         </motion.div>
-        <div className="flex flex-col gap-10 md:gap-20">
+        <div className="flex flex-col gap-4 md:gap-10">
           {ourPoints.map((point, index) => (
             <motion.div
               key={point.content}
