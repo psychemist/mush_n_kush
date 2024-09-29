@@ -32,8 +32,12 @@ const Product = () => {
           Our Best Selling Products
         </h2>
         <p className="w-11/12 text-base font-medium text-gray-300 md:w-7/12 md:text-lg">
-          Blessing welcomed ladyship she met humoured sir breeding her. Six
-          curiosity day assurance bed necessary.
+          Discover our premium marijuana offerings, expertly cultivated for
+          quality and consistency. Our best-selling products are rigorously
+          tested for purity and potency, ensuring a safe and enjoyable
+          experience. From soothing flower strains to delicious edibles, we have
+          something for everyone. Enjoy top-tier quality and exceptional
+          customer support as you explore our selection!
         </p>
       </div>
 
