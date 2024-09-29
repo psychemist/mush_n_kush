@@ -26,7 +26,7 @@ export default function BookingCard({ image, title, content }: WeedCardProps) {
           size="sm"
           color="red"
           variant="text"
-          className="!absolute right-4 top-4 rounded-full"
+          className="!absolute right-10 top-6 rounded-full"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ export default function BookingCard({ image, title, content }: WeedCardProps) {
           </svg>
         </IconButton>
       </CardHeader>
-      <CardBody>
+      <CardBody className="p-8">
         <div className="mb-3 flex items-center justify-between">
           <Typography variant="h5" color="blue-gray" className="font-medium">
             {title}
