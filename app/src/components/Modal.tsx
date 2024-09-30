@@ -19,7 +19,34 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         >
           &times;
         </button>
-        {children}
+        
+
+
+        <div className="mt-4">
+
+            <h1 className="text-2xl font-bold text-center">HIGH SEAS</h1>
+            <p className="text-center text-gray-700 mb-6">Are you 21 or older?</p>
+            <p className="text-center text-gray-500 text-sm mb-6">*Or 18+ with a valid medical recommendation.</p>
+
+            <div className="flex justify-center space-x-4">
+                <button
+                onClick={onClose}
+                className="bg-black text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+                >
+                    Yes
+                </button>
+                <button
+                onClick={onClose}
+                className="border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 transition"
+                >
+                    No
+                </button>
+            </div>
+            
+            {/* {children}  */}
+            {/* remove this line to render children inside the modal */}
+            
+        </div>
       </div>
     </div>
   );
