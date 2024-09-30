@@ -3,6 +3,8 @@
 
 ## Overview
 
+![landingpageimage.png](app/src/assets/landing.png)
+
 ### Problem Statement
 
 In the medical cannabis industry, many consumers face significant privacy concerns when purchasing products online. Personal information, such as medical conditions and identity, is often stored and shared with third parties, raising confidentiality risks. Additionally, the reliance on intermediaries in traditional marketplaces can lead to delays, higher costs, and reduced privacy for both buyers and sellers. Trust in product quality, payment security, and delivery is also a major concern, as patients often pay upfront without guarantees on product authenticity or delivery timelines.
@@ -79,9 +81,9 @@ A decentralized marketplace encourages community-driven improvements, allowing u
 
 Smart contracts can be programmed to ensure compliance with local laws and regulations, providing both consumers and sellers with legal security.
 
-### Our Approach
+## Our Approach
 
-#### Phase 1: Problem Definition and Requirements Gathering
+### Phase 1: Problem Definition and Requirements Gathering
 
 **Objective:** Understand the key challenges in the current medical cannabis marketplace, particularly in privacy protection, product quality assurance, and transaction transparency.
 
@@ -92,7 +94,7 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 - Define the core requirements for a decentralized medical cannabis marketplace, including user anonymity, secure product transactions, privacy-preserving age verification, and escrow-managed payments.
 - Design the system architecture to meet these needs and create UI/UX wireframes that focus on ease of use, accessibility, and secure interactions.
 
-#### Phase 2: Smart Contract Development
+### Phase 2: Smart Contract Development
 
 **Objective:** Develop and deploy smart contracts to ensure privacy, transparency, and trust throughout the buying and selling process.
 
@@ -104,7 +106,7 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 - Use advanced cryptographic techniques like ECDSA to anonymize user transactions, protecting buyer identities throughout the transaction process.
 - Thoroughly test all smart contracts on Ethereum testnets to ensure functionality and security before deploying them to the mainnet.
 
-#### Phase 3: Frontend Development
+### Phase 3: Frontend Development
 
 **Objective:** Build an intuitive and secure interface that enhances user experience while interacting with the decentralized marketplace.
 
@@ -116,7 +118,7 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 - Utilize **Web3.js** to facilitate seamless communication between the frontend and the deployed smart contracts, ensuring real-time updates for product availability, transaction status, and escrow management.
 - Ensure the platform accommodates a wide range of user needs by developing user flows for product search, order tracking, and rating system interaction.
 
-#### Phase 4: Testing, Security Audit, and Deployment
+### Phase 4: Testing, Security Audit, and Deployment
 
 **Objective:** Guarantee a secure, reliable, and scalable platform by conducting rigorous testing and audits prior to deployment.
 
@@ -127,7 +129,7 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 - Deploy the smart contracts on Ethereum mainnet after all testing and security audits have passed.
 - Launch the frontend application on a cloud-based service (e.g., **Vercel**, **Netlify**) or a decentralized hosting platform (e.g., **IPFS**) to enhance availability, security, and censorship resistance.
 
-#### Phase 5: Maintenance and Future Enhancements
+### Phase 5: Maintenance and Future Enhancements
 
 **Objective:** Continuously monitor and enhance the platform based on user feedback, industry trends, and evolving technological standards.
 
@@ -167,8 +169,8 @@ We are continually working on enhancing the platform with new features that impr
 #### Clone the Repository
 
 ```bash
-git clone 'https://github.com/user/DecentralizedShop.git'
-cd DecentralizedShop
+git clone 'https://github.com/psychemist/mush_n_kush'
+cd mush_n_kush
 ```
 
 #### Install Dependencies
@@ -222,7 +224,7 @@ module.exports = {
 }
 ```
 
-3. Add the following to your `./styles/globals.css` file:
+3. Add the following to your `./app/src/app/globals.css` file:
 
 ```css
 @tailwind base;
@@ -232,7 +234,7 @@ module.exports = {
 
 #### Deploy Smart Contracts
 
-- **Smart Contracts**: Deploy to the Scroll testnet or mainnet using Hrdhat or Foundry. Youmay also or interact with the already deployed contract stored in ```./contract/address.txt```.
+- **Smart Contracts**: Deploy to the Scroll testnet or mainnet using Hrdhat or Foundry. You may also or interact with the already deployed contract stored in ```./contract/address.txt```.
 - **Frontend Application**: Deploy the Next.js app on a cloud service (e.g., Vercel/Netlify) or decentralized hosting (e.g., IPFS or Fleek).
 
 #### Run the Application
