@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="flex flex-col items-center gap-8 w-full pt-10 mt-20">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 place-items-start justify-items-center">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3  justify-items-center">
         <section className="flex flex-col gap-8 w-full items-center">
           <div>
             <Image src={footerlogo} alt="logo" />
@@ -24,13 +24,13 @@ export default function Footer() {
               Connect with us , Join our community and get access to our latest news and updates.
             </p>
             <div className="flex gap-4">
-              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-cyan-500 rounded">
+              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-green-500 rounded">
                 <Facebook size={18} className="text-white" />
               </a>
-              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-cyan-500 rounded">
+              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-green-500 rounded">
                 <Twitter size={18} className="text-white" />
               </a>
-              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-cyan-500 rounded">
+              <a href="#" target="_blank" className="w-8 h-8 flex items-center justify-center bg-green-500 rounded">
                 <Linkedin size={18} className="text-white" />
               </a>
             </div>
