@@ -4,24 +4,53 @@ import React from "react";
 
 import Weed from "@/components/Weed";
 
-import team1 from "@/assets/team1.png";
+import strain2 from "@/assets/team2.png";
+import strain6 from "@/assets/team6.png";
+import strain1 from "@/assets/team1.png";
+import strain3 from "@/assets/team3.png";
+import strain4 from "@/assets/team4.png";
+import strain5 from "@/assets/team5.png";
 import Image from "next/image";
 
 const WeedData = [
   {
-    image: team1,
-    title: "Card 1",
-    content: "This is the content for card 1.",
+    image: strain2,
+    title: "Cosmic Citrus Haze",
+    content:
+      "A sativa-dominant hybrid that delivers an uplifting cerebral high with notes of tangy citrus. Perfect for creative pursuits and social gatherings.",
   },
   {
-    image: team1,
-    title: "Card 2",
-    content: "This is the content for card 2.",
+    image: strain6,
+    title: "Frost Giant OG",
+    content:
+      "A high-THC indica strain with a cool, minty flavor profile. Delivers a powerful body high that's perfect for pain relief and deep relaxation.",
   },
-  { image: team1, title: "Card 3", content: "This is the content for card 3." },
-  { image: team1, title: "Card 1", content: "This is the content for card 1." },
-  { image: team1, title: "Card 2", content: "This is the content for card 2." },
-  { image: team1, title: "Card 3", content: "This is the content for card 3." },
+  {
+    image: strain1,
+    title: "Velvet Midnight Kush",
+    content:
+      "An indica powerhouse with deep berry flavors and a smooth, velvety smoke. Excellent for insomnia and deep relaxation.",
+  },
+
+  {
+    image: strain5,
+    title: "Purple Dreamcatcher CBD",
+    content:
+      "This indica-rich strain offers a calming body high with a pleasant grape aroma. Ideal for relaxation and stress relief without intense psychoactive effects",
+  },
+  {
+    image: strain4,
+    title: "Mango Tango THC-V",
+    content:
+      "A unique sativa-leaning strain high in THC-V. Provides an uplifting, focused high with potential appetite-suppressing effects. Tastes of ripe mango and herbs.",
+  },
+
+  {
+    image: strain3,
+    title: "Electric Lemon Zest",
+    content:
+      "A potent sativa strain with an energizing buzz and a sharp lemon scent. Great for boosting mood and focus during daytime use.",
+  },
 ];
 
 const Product = () => {

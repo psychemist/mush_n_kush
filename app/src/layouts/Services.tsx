@@ -60,10 +60,12 @@ export default function Services() {
       >
         <div className="order-last flex w-full flex-col items-start gap-3 md:-order-1 lg:w-96">
           <p className="mt-4 text-base leading-normal text-gray-300">
-          Know exactly where your premium herb comes from, every step of the way.
-          Got questions or need the freshest drop? We're just a click away!
+            With Mush n' Kush, you can find the right cannabis for you with our
+            easy-to-use Product Explorer. The MyKush journal feature allows you
+            to track, compare, and reference your experiences. Start your
+            journey today!
           </p>
-          <Button>Contact Us</Button>
+          <Button>Learn More</Button>
         </div>
         <p className="text-4xl font-medium leading-snug text-gray-500 lg:text-5xl">
           Why Choose us for best relaxation experience?
