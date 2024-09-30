@@ -18,18 +18,21 @@ const WeedData = [
     title: "Cosmic Citrus Haze",
     content:
       "A sativa-dominant hybrid that delivers an uplifting cerebral high with notes of tangy citrus. Perfect for creative pursuits and social gatherings.",
+    price: "$1250 scroll",
   },
   {
     image: strain6,
     title: "Frost Giant OG",
     content:
       "A high-THC indica strain with a cool, minty flavor profile. Delivers a powerful body high that's perfect for pain relief and deep relaxation.",
+    price: "$1800 scroll",
   },
   {
     image: strain1,
     title: "Velvet Midnight Kush",
     content:
       "An indica powerhouse with deep berry flavors and a smooth, velvety smoke. Excellent for insomnia and deep relaxation.",
+    price: "$2500 scroll",
   },
 
   {
@@ -37,12 +40,14 @@ const WeedData = [
     title: "Purple Dreamcatcher CBD",
     content:
       "This indica-rich strain offers a calming body high with a pleasant grape aroma. Ideal for relaxation and stress relief without intense psychoactive effects",
+    price: "$1000 scroll",
   },
   {
     image: strain4,
     title: "Mango Tango THC-V",
     content:
       "A unique sativa-leaning strain high in THC-V. Provides an uplifting, focused high with potential appetite-suppressing effects. Tastes of ripe mango and herbs.",
+    price: "$1450 scroll",
   },
 
   {
@@ -50,6 +55,7 @@ const WeedData = [
     title: "Electric Lemon Zest",
     content:
       "A potent sativa strain with an energizing buzz and a sharp lemon scent. Great for boosting mood and focus during daytime use.",
+    price: "$2000 scroll",
   },
 ];
 
