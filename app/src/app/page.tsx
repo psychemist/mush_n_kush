@@ -8,6 +8,7 @@ import Header from "@/layouts/Header";
 import Newsletter from "@/layouts/Newsletter";
 import Services from "@/layouts/Services";
 import Product from "@/layouts/Product";
+import { Cart } from "@/components/Cart";
 
 export default function Home() {
   return (
@@ -16,8 +17,12 @@ export default function Home() {
       <Banner />
       <Partnership />
       <Services />
-      {/*  <Cards /> */}
       <Product />
+      {/* <Cart isOpen={false} closeCart =()=>{} removeFromCart
+  cartItems,
+  removeFromCart,
+  updateQuantity,
+  clearCart, /> */}
       <ContactUs />
       <Blog />
       <Newsletter />
