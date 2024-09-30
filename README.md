@@ -102,8 +102,6 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 
 - Create a smart contract for escrow services to manage payment flow, ensuring that funds are only released to sellers once delivery is confirmed by both the shipper and buyer.
 - Develop a product verification contract, allowing buyers to authenticate the quality and origin of medical cannabis products on the blockchain.
-- Implement age-verification using zero-knowledge proof (ZK Proof) technology, allowing buyers to prove they meet the minimum age requirement (21+) without revealing sensitive personal data.
-- Use advanced cryptographic techniques like ECDSA to anonymize user transactions, protecting buyer identities throughout the transaction process.
 - Thoroughly test all smart contracts on Ethereum testnets to ensure functionality and security before deploying them to the mainnet.
 
 ### Phase 3: Frontend Development
@@ -113,9 +111,7 @@ Smart contracts can be programmed to ensure compliance with local laws and regul
 **Approach:**
 
 - Develop the frontend using **Next.js** to optimize performance and SEO, ensuring the platform is both fast and user-friendly.
-- Implement **React.js** to create a dynamic, responsive interface that simplifies the shopping process for patients and sellers.
 - Integrate **Wagmi** to manage secure blockchain interactions, such as wallet connections, payment transactions, and ZK Proof verifications.
-- Utilize **Web3.js** to facilitate seamless communication between the frontend and the deployed smart contracts, ensuring real-time updates for product availability, transaction status, and escrow management.
 - Ensure the platform accommodates a wide range of user needs by developing user flows for product search, order tracking, and rating system interaction.
 
 ### Phase 4: Testing, Security Audit, and Deployment
