@@ -5,7 +5,7 @@ import hero from "@/assets/hero.png";
 export default function Banner() {
   const totalValues = [
     {
-      number: "255,356",
+      number: "6,255,356",
       content: "Sales Completed",
       color: "bg-orange-500",
     },
@@ -36,7 +36,7 @@ export default function Banner() {
           </p>
           <div className="flex flex-wrap items-center justify-start gap-4">
             <Button>Explore</Button>
-            <Button color="outline">Contact Us</Button>
+            <Button color="outline">Connect Wallet</Button>
           </div>
         </div>
 
