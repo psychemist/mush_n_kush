@@ -5,7 +5,7 @@ contract MKShopHelpers {
     // Custom Errors
     error EmptyName();
     error EmptyOrder();
-    error EthTransferFailed();
+    error PaymentFailed();
     error IncorrectPayment();
     error InsufficientBalance();
     error InsufficientStock();
@@ -14,12 +14,13 @@ contract MKShopHelpers {
     error InvalidQuantity();
     error ProductDoesNotExist();
     error ProductNotActive();
-    error Unauthorized();
+    error UnauthorizedSender();
     error ZeroAddressDetected();
 
     // Custom Events
     event ProductAdded(
         uint256 indexed productId,
+        address seller,
         string name,
         uint256 price,
         uint256 stock
@@ -36,9 +37,11 @@ contract MKShopHelpers {
         address indexed buyer,
         uint256 totalPrice
     );
-    event OrderShipped(uint256 indexed orderId);
-    event OrderDelivered(uint256 indexed orderId);
     event OrderCancelled(uint256 indexed orderId);
+    event OrderShipped(uint256 indexed orderId, address shipper);
+    event OrderDelivered(uint256 indexed orderId);
+    event OrderFulfilled(uint256 indexed orderId);
+    event PaymentDistributed(address indexed recipient, uint256 amount);
 
     // Internal functions
     function performSanityCheck() internal view {
