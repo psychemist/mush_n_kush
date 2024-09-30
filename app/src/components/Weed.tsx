@@ -58,14 +58,14 @@ export default function BookingCard({ image, title, content, price }: WeedCardPr
         </div>
         <div className="flex w-full place-content-center pb-8 pt-0">
           <span className="flex w-2/4 cursor-pointer place-content-center rounded-full border border-gray-900/5 bg-gray-900/5 p-3 font-bold text-gray-900 transition-colors hover:border-gray-900/10 hover:bg-gray-900/10 hover:!opacity-100 group-hover:opacity-70">
-            {/* <button
-              onClick={() => {
+            <button
+            /* onClick={() => {
                 addToCart(product);
                 setIsCartOpen(true);
-              }}
+              }} */
             >
-              {price} Add to Cart
-            </button> */}
+              {price}
+            </button>
           </span>
         </div>
       </CardBody>
