@@ -1,8 +1,21 @@
+"use client"
 import Image from "next/image";
 import Button from "@/components/Button";
 import hero from "@/assets/hero.png";
+import { useRef } from "react";
 
 export default function Banner() {
+  const targetSection = useRef(null);
+
+
+  // const handleScroll = () => {
+  //   if (targetSection.current) {
+  //     // Smooth scroll to the section
+  //     targetSection.current.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
+
+
   const totalValues = [
     {
       number: "6,255,356",
@@ -35,7 +48,8 @@ export default function Banner() {
             stimulation, and improved sleep.
           </p>
           <div className="flex flex-wrap items-center justify-start gap-4">
-            <Button>Explore</Button>
+            <Button><a href="#services">Explore</a></Button>
+            
             <Button color="outline">Connect Wallet</Button>
           </div>
         </div>

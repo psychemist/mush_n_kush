@@ -55,7 +55,7 @@ const WeedData = [
 
 const Product = () => {
   return (
-    <section className="flex flex-col py-20" w-full id="team">
+    <section className="flex flex-col py-20" w-full id="services">
       <div>
         <h2 className="text-4xl font-semibold leading-relaxed text-gray-500 md:text-5xl">
           Our Best Selling Products

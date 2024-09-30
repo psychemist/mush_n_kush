@@ -55,17 +55,16 @@ export default function Services() {
         variants={fadeIn("left", "spring", 1, 0.3)}
         initial="hidden"
         whileInView="show"
-        id="services"
         className="items-last-baseline mt-4 grid w-full grid-cols-1 items-baseline gap-8 md:grid-cols-2"
       >
         <div className="order-last flex w-full flex-col items-start gap-3 md:-order-1 lg:w-96">
-          <p className="mt-4 text-base leading-normal text-gray-300">
+          <p className="mt-4 my-2 text-base leading-normal text-gray-300">
             With Mush n' Kush, you can find the right cannabis for you with our
             easy-to-use Product Explorer. The MyKush journal feature allows you
             to track, compare, and reference your experiences. Start your
             journey today!
           </p>
-          <Button>Learn More</Button>
+          <Button className="w-full"> <a href="#blog">Learn More</a></Button>
         </div>
         <p className="text-4xl font-medium leading-snug text-gray-500 lg:text-5xl">
           Why Choose us for best relaxation experience?

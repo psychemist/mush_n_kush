@@ -12,6 +12,7 @@ import Product from "@/layouts/Product";
 import { Cart } from "@/components/Cart";
 
 export default function Home() {
+  
   return (
     <>
       <Header />
