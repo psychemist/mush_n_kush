@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -5,7 +6,6 @@ import {
   Typography,
   Tooltip,
 } from "@material-tailwind/react";
-import Image from "next/image";
 
 interface WeedCardProps {
   image: any;

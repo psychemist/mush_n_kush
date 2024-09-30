@@ -160,5 +160,3 @@ export const Cart: React.FC<CartProps> = ({
     </div>
   );
 };
-
-// export default Cart;
