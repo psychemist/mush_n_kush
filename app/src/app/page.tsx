@@ -1,3 +1,4 @@
+import React from "react";
 import Partnership from "@/components/Partnership";
 import Banner from "@/layouts/Banner";
 import Blog from "@/layouts/Blog";

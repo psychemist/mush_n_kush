@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Card,
   CardHeader,
@@ -5,7 +6,6 @@ import {
   Typography,
   Tooltip,
 } from "@material-tailwind/react";
-import Image from "next/image";
 import { useState } from "react";
 import Modal from "./Modal";
 
@@ -69,11 +69,7 @@ export default function BookingCard({ image, title, content, price }: WeedCardPr
           </span>
         </div>
       </CardBody>
-      <CardFooter className="pt-3">
-        <Button size="lg" fullWidth={true} onClick={openModal} className="bg-blue-500 text-white">
-          Reserve
-        </Button>
-      </CardFooter>
+     
     </Card>
   );
 }

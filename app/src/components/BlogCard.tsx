@@ -1,28 +1,63 @@
-import Image from "next/image"
-import Button from "./Button"
-interface BlogCardProps {
-  title: string
-  description: string
-  image: any
-  link: string
+import Image from "next/image";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+
+interface IHorizontalCard {
+  image: any;
+  title: string;
+  description: string;
 }
-export default function BlogCard({title, description, image, link}: BlogCardProps) {
+
+export default function HorizontalCard({
+  image,
+  title,
+  description,
+}: IHorizontalCard) {
   return (
-    <div className="relative flex min-w-[240px] max-w-[360px] items-end justify-center text-center">
-      <Image src={image} alt="" className="relative w-full object-contain" />
-      <div className="absolute flex flex-col items-center gap-2 pb-8 px-4">
-        <h2 className="font-bold text-xl text-white">
+    <Card className="w-full max-w-[48rem] flex-row">
+      <CardHeader
+        shadow={false}
+        floated={false}
+        className="m-0 w-2/5 shrink-0 rounded-r-none"
+      >
+        <Image
+          src={image}
+          alt="card-image"
+          className="h-full w-full object-cover"
+        />
+      </CardHeader>
+      <CardBody>
+        <Typography variant="h4" color="blue-gray" className="mb-2">
           {title}
-        </h2>
-        <span className="text-white text-base mb-4">
+        </Typography>
+        <Typography color="gray" className="mb-8 font-normal">
           {description}
-        </span>
-        <Button color="white">
-          <a href={link} target="_blank" className="w-full h-full">
+        </Typography>
+        <a href="#" className="inline-block">
+          <Button variant="text" className="flex items-center gap-2">
             Read More
-          </a>
-        </Button>
-      </div>
-    </div>
-  )
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              className="h-4 w-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </Button>
+        </a>
+      </CardBody>
+    </Card>
+  );
 }
