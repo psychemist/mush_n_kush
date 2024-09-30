@@ -9,16 +9,29 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import Image from "next/image";
+import { useState } from "react";
+import Modal from "./Modal";
 
 interface WeedCardProps {
   image: any;
   title: string;
   content: string;
+  onClick?: () => void;
 }
 
 export default function BookingCard({ image, title, content }: WeedCardProps) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   return (
     <Card className="w-full max-w-[26rem] shadow-lg">
+      {isOpen && <Modal isOpen={isOpen} onClose={closeModal} children={<div>Hello</div>} />}
       <CardHeader floated={false} color="blue-gray">
         <Image src={image} alt="strains" />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
@@ -152,7 +165,7 @@ export default function BookingCard({ image, title, content }: WeedCardProps) {
         </div>
       </CardBody>
       <CardFooter className="pt-3">
-        <Button size="lg" fullWidth={true}>
+        <Button size="lg" fullWidth={true} onClick={openModal} className="bg-blue-500 text-white">
           Reserve
         </Button>
       </CardFooter>

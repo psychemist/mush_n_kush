@@ -48,6 +48,7 @@ const Product = () => {
             image={card.image}
             title={card.title}
             content={card.content}
+            onClick={() => {}}
           />
         ))}
       </div>
