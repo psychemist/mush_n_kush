@@ -168,7 +168,7 @@ contract MKShop is ReentrancyGuard, Ownable, MKShopHelpers {
         if (order.status != OrderStatus.Placed) revert InvalidOrderStatus();
 
         order.status = OrderStatus.Shipped;
-        order.shipper = payable(msg.sender);
+        order.shipper = payable(_shipper);
         order.shippingFee = _shippingFee;
 
         emit OrderShipped(_orderId, _shipper);
